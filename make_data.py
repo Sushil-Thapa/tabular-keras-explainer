@@ -20,6 +20,7 @@ def generate_random_labels(X, c = 10):
     # This generates random labels, Primarily for debug/dummy purpose.
     # tries to make labels max(n,c) where n is number of instances in X (modulo operator)
     y = np.random.randint(X.shape[0]%c, size = X.shape[0])
+    y = tf.keras.utils.to_categorical(y)
     return y
 
 def generate_sum_labels(X):

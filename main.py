@@ -3,6 +3,7 @@ import argparse
 import numpy as np
 from make_data import generate_data
 from trainer import train
+from explainer import explain
 
 def create_data(args): 
 	"""
@@ -35,4 +36,6 @@ if __name__ == '__main__':
 
 	data = create_data(args)
 	model = train(data, load_existing = False)
-	print("")
+	explain(model, data, args)
+
+	print("Script Complete.")
